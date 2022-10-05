@@ -21,7 +21,7 @@
         <cucumber.stepsDefinitions>--glue ar/steps</cucumber.stepsDefinitions>
 		<cucumber.hooks>--glue com/crowdar/bdd/cukes --glue ar/apiExampleProject/hook</cucumber.hooks>
 		<cucumber.tags>@Success</cucumber.tags>
-		<cucumber.reporters>--plugin pretty</cucumber.reporters>
+		<cucumber.reporters>--plugin pretty --plugin api.report.CucumberReporter:</cucumber.reporters>
 		<crowdar.cucumber.option>src/test/resources/features ${cucumber.hooks} ${cucumber.stepsDefinitions} --glue com/crowdar --tags 'not @Ignore' --tags ${cucumber.tags} ${cucumber.reporters}</crowdar.cucumber.option>
         <crowdar.projectType>API</crowdar.projectType>
 
@@ -59,6 +59,16 @@
 	        <groupId>io.lippia</groupId>
 	        <artifactId>core</artifactId>
 	        <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.lippia.report</groupId>
+            <artifactId>cucumber4-adapter</artifactId>
+            <version>1.7.3</version>
+        </dependency>
+        <dependency>
+            <groupId>io.lippia.report</groupId>
+            <artifactId>extentreports-cucumber4-adapter</artifactId>
+            <version>1.1.0.10</version>
         </dependency>
     </dependencies>
     <build>
