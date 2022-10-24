@@ -12,8 +12,8 @@ import java.util.Map;
 
 public class ErrorService extends BaseService {
 
-    public static Response get(String jsonName) {
-        return get(jsonName, ErrorResponse.class,setParams());
+    public static Response get(String jsonName, Map<String, String> params) {
+        return get(jsonName, ErrorResponse.class, params);
     }
 
     private static Map<String, String> setParams() {

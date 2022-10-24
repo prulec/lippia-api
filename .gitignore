@@ -1,3 +1,5 @@
+.env
+.attach*
 *.class
 
 # Log file
