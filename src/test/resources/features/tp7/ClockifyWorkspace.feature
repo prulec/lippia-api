@@ -1,10 +1,11 @@
+@TP7
 Feature: Workspace
   COMO usuario de Clockify
   QUIERO ver las configuraciones de mi Worckspace
   PARA llevar un buen control de mis horas de trabajo y el de mis empleados
 
   Scenario Outline: Consulta Workspace resultado exitoso
-    Given Mi cuenta creada en clockify y mi X-Api-Key geneada
+    Given Mi cuenta creada en clockify y mi X-Api-Key generada
     When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
     And se obtuvo el status code <status>
     Then Obtengo los datos de mi Workspace
@@ -46,7 +47,7 @@ Feature: Workspace
   # Ej 4.3 - Proyecto no existente (400) - el 404 no fue posible obtenerlo
   @prueba @Project @BadRequest
   Scenario Outline: Consulta Project por ID exitosa
-    Given Mi cuenta creada en clockify y mi X-Api-Key geneada
+    Given Mi cuenta creada en clockify y mi X-Api-Key generada
     And un workspaceId
     And un Project ID inexistente
     And I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
@@ -59,7 +60,7 @@ Feature: Workspace
   # Ej 5.1
   @prueba @Project @Success
   Scenario Outline: Consulta Project por ID exitosa
-    Given Mi cuenta creada en clockify y mi X-Api-Key geneada
+    Given Mi cuenta creada en clockify y mi X-Api-Key generada
     And un workspaceId
     When I perform a '<operation>' to '<entity1>' endpoint with the '<jsonName1>' and ''
     And se obtuvo un Project ID
@@ -73,7 +74,7 @@ Feature: Workspace
   # Ej 5.2
   @prueba @Project @Update @Success
   Scenario Outline: Actualizacion del Name de un Project exitosa
-    Given Mi cuenta creada en clockify y mi X-Api-Key geneada
+    Given Mi cuenta creada en clockify y mi X-Api-Key generada
     And un workspaceId
     And un timestamp del momento actual para concatenar al Name a modificar
     When I perform a 'GET' to 'PROJECT' endpoint with the 'project/rq' and ''
