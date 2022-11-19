@@ -4,16 +4,19 @@ import api.model.Project.ProjectResponse;
 import ar.validator.ProjectValidator;
 import com.crowdar.api.rest.APIManager;
 import com.crowdar.core.PageSteps;
+import com.crowdar.core.PropertyManager;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import services.BaseService;
 import services.ProjectItemService;
 import services.ProjectService;
 
 public class ProjectSteps extends PageSteps {
 
+    @Given("I have the Workspace Id")
     @And("un workspaceId")
     public void unWorkspaceId() {
-        BaseService.WORKSPACE_ID.set("63549dfa28051215c2f08293");
+        BaseService.WORKSPACE_ID.set(PropertyManager.getProperty("workspace-id"));
     }
 
     @And("se obtuvo un Project ID")

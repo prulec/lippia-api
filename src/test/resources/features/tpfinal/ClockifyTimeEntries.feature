@@ -1,5 +1,29 @@
-#@TPFinal @TimeEntries
-#Feature: Time Entries CRUD
+@TPFinal @TimeEntries
+Feature: Time Entries CRUD
+
+  Background:
+    Given I have the account in Clockify with the X-Api-Key created
+    And I have the Workspace Id
+
+  @Get @UserTimeEntries @Success @Smoke @Now
+  Scenario Outline: (A) Get all the time entries of the user correctly
+    And I have the User Id
+    When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
+    And status code <status> is obtained
+    Then I get in response all the time entries for the user
+    Examples:
+      | operation | entity       | jsonName               | status |
+      | GET       | TIME_ENTRIES | timeEntries/get_all_rq | 200    |
+
+  @Post @NewTimeEntry @Success @Smoke @Now
+  Scenario Outline: (B) Post a new time entry
+    And I have the User Id
+    When I perform a '<operation>' to '<entity>' endpoint with the '<jsonName>' and ''
+    And status code <status> is obtained
+    Then I get in response the new time entry data
+    Examples:
+      | operation | entity       | jsonName               | status |
+      | POST      | TIME_ENTRIES | timeEntries/post_new_rq | 201    |
 
 #  @Now
 #  Scenario Outline: Consulta Workspace resultado exitoso
