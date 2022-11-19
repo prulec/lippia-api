@@ -1,0 +1,13 @@
+{
+  "url": "https://api.clockify.me/api/v1",
+  "headers": {
+    "X-Api-Key": "{{api-key}}",
+    "Content-Type": "application/json"
+  },
+  "body": {
+    "start": "2019-06-12T13:48:14.000Z",
+    "end": "2019-06-12T15:50:14.000Z",
+    "description": "POST desde Lippia para modificar"
+  },
+  "endpoint": "/workspaces/{{workspace-id}}/user/{{user-id}}/time-entries"
+}

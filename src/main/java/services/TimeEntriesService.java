@@ -13,9 +13,26 @@ public class TimeEntriesService extends BaseService {
     public static Response get(String jsonName) {
         return get(jsonName, TimeEntryResponse[].class, setParamsWithUserId());
     }
-    public static Response get() {
-        return get("request/timeEntries/get_byid_rq", TimeEntryResponse.class, setParamsWithTimeEntryId());
+    public static Response get(String jsonName, Boolean useTimeEntryId) {
+        if (useTimeEntryId) {
+            return get(jsonName, TimeEntryResponse.class, setParamsWithTimeEntryId());
+        } else {
+            return get(jsonName);
+        }
     }
+
+    public static Response post(String jsonName) {
+        return post(jsonName, TimeEntryResponse.class, setParamsWithUserId());
+    }
+
+    public static Response put(String jsonName) {
+        return put(jsonName, TimeEntryResponse.class, setParamsWithTimeEntryId());
+    }
+
+    public static Response delete(String jsonName) {
+        return delete(jsonName, TimeEntryResponse.class, setParamsWithTimeEntryId());
+    }
+
     private static Map<String,String> setParams(){
         Map<String,String> params = new HashMap<>();
         params.put("api-key", BaseService.API_KEY.get());
@@ -31,13 +48,5 @@ public class TimeEntriesService extends BaseService {
         Map<String,String> params = setParams();
         params.put("time-entry-id", TIMEENTRY_ID.get());
         return params;
-    }
-
-    public static Response post(String jsonName) {
-        return post(jsonName, TimeEntryResponse.class, setParamsWithUserId());
-    }
-
-    public static Response delete() {
-        return delete("request/timeEntries/delete_rq", TimeEntryResponse.class, setParamsWithTimeEntryId());
     }
 }
